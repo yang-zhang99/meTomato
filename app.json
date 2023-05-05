@@ -1,4 +1,7 @@
 {
   "name": "meTomato",
-  "displayName": "meTomato"
+  "displayName": "meTomato",
+  "expo": {
+    "icon": "./assets/icon.png"
+  }
 }
