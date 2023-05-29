@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
+import Sound from 'react-native-sound';
 
 /**
  * 番茄时钟 Pages
@@ -16,6 +17,16 @@ export function Tomato() {
   // 是否倒计时
   const [isActive, setIsActive] = useState<boolean>(false);
   const intervalRef = React.useRef<number | null>(null);
+
+  const sound = new Sound('test.mp3', Sound.CACHES, error => {
+    if (error) {
+      console.log('Failed to load sound:', error);
+      return;
+    }
+    // 加载完成后，可以开始播放音乐
+    sound.play();
+  });
+
 
   useEffect(() => {
     if (isActive && seconds > 0) {
